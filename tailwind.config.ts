@@ -1,7 +1,12 @@
-import { type Config } from "tailwindcss";
-
+/** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "{routes,islands,components}/**/*.{ts,tsx,js,jsx}",
+    "./routes/**/*.{ts,tsx}",
+    "./islands/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
   ],
-} satisfies Config;
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
