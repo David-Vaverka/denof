@@ -6,7 +6,7 @@ interface Props {
 }
 
 export default function ProductGallery({ images, index = 0 }: Props) {
-  const main = cdn(images[index], 800, 600);
+  const main = cdn(images[index], 500, 250);
   return (
     <div id="gallery" class="space-y-2">
       <div class="group overflow-hidden rounded">
@@ -14,9 +14,9 @@ export default function ProductGallery({ images, index = 0 }: Props) {
           id="main-image"
           src={main}
           alt="product"
-          width="800"
-          height="600"
-          class="w-full h-auto transition-transform duration-300 group-hover:scale-150"
+          width="500"
+          height="250"
+          class="w-full max-h-[250px] object-contain transition-transform duration-300 group-hover:scale-150"
           decoding="async"
         />
       </div>

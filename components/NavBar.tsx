@@ -12,7 +12,7 @@ export default function NavBar({ cartCount }: { cartCount: number }) {
             class="text-xl"
             hx-get="/partials/menu"
             hx-target="#menu-root"
-            hx-swap="innerHTML"
+            hx-swap="outerHTML"
           >
             ☰
           </button>
@@ -23,6 +23,7 @@ export default function NavBar({ cartCount }: { cartCount: number }) {
             hx-get="/search"
             hx-target="#search-box"
             hx-swap="innerHTML"
+            hx-push-url="true"
           >
             🔍
           </button>

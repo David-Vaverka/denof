@@ -54,6 +54,7 @@ export default function Search({ data }: PageProps<Data>) {
         hx-trigger="input changed delay:500ms"
         hx-target="#search-results"
         hx-swap="innerHTML"
+        hx-push-url="true"
         autofocus
       />
       <div id="search-results" class="mt-4" />

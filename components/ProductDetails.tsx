@@ -15,6 +15,10 @@ interface Product {
 }
 
 export default function ProductDetails({ product }: { product: Product }) {
+  const descriptionHtml = product.descriptionHtml.replace(
+    /<img /g,
+    '<img loading="lazy" '
+  );
   return (
     <div class="p-4 bg-white rounded shadow">
       <h2 class="text-xl mb-3 font-semibold">{product.title}</h2>
@@ -51,7 +55,7 @@ export default function ProductDetails({ product }: { product: Product }) {
       )}
       <div
         class="mb-3 text-sm"
-        dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+        dangerouslySetInnerHTML={{ __html: descriptionHtml }}
       />
       {product.parameters && (
         <ul class="mb-4 text-sm">

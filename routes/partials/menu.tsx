@@ -19,7 +19,7 @@ const items = [
 export default function MenuPartial() {
   console.log("loading menu partial");
   return (
-    <Partial name="menu">
+    <Partial name="menu" id="menu-root">
       <Menu items={items} />
     </Partial>
   );
