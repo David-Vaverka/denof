@@ -15,6 +15,7 @@ export default function SearchBox({ products }: { products: Product[] }) {
       <input
         type="text"
         placeholder="Search..."
+        autoFocus
         value={query}
         onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
         class="w-full p-2 border rounded mb-4"

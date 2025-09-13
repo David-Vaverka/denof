@@ -17,11 +17,11 @@ Then open http://localhost:8000/product to see the sample product page with cart
 
 ### Features
 
-- Mobile-first navigation bar with search link and cart count
+- Mobile-first navigation bar with cart count and on-demand search overlay
 - Image gallery with HTMX-powered thumbnail swapping
 - Detailed product info including rating, coupon notice and spec list
 - Add-to-cart button updates the cart count without reloading
-- Search page that loads a Preact island for local filtering
+- Search overlay that loads a Preact island for local filtering
 - Category page (`/category/dorbeckovku`) showing sample products
 
 This will watch the project directory and restart as necessary.
