@@ -45,7 +45,14 @@ export default function ProductDetails({ product }: { product: Product }) {
           ))}
         </ul>
       )}
-      <form method="POST" action="/cart" f-partial="/cart" class="mt-4">
+      <form
+        hx-post="/cart"
+        hx-target="#cart-count"
+        hx-swap="outerHTML"
+        hx-indicator="#add-indicator"
+        hx-on="htmx:afterRequest: this.querySelector('button').innerText='Added'"
+        class="mt-4 flex items-center gap-2"
+      >
         <input type="hidden" name="id" value={product.id} />
         <button
           type="submit"
@@ -53,6 +60,12 @@ export default function ProductDetails({ product }: { product: Product }) {
         >
           Add to Cart
         </button>
+        <span
+          id="add-indicator"
+          class="htmx-indicator text-sm text-gray-500"
+        >
+          Adding...
+        </span>
       </form>
     </div>
   );

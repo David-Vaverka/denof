@@ -9,6 +9,7 @@ export default function App({ Component }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>FinanceTool</title>
         <link rel="stylesheet" href="/styles.css" />
+        <script src="https://unpkg.com/htmx.org@1.9.10" defer></script>
       </head>
       <body f-client-nav>
         <Partial name="body">

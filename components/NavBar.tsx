@@ -1,4 +1,3 @@
-import { Partial } from "$fresh/runtime.ts";
 import CartSummary from "./CartSummary.tsx";
 
 export default function NavBar({ cartCount }: { cartCount: number }) {
@@ -13,9 +12,7 @@ export default function NavBar({ cartCount }: { cartCount: number }) {
           class="w-full p-2 border rounded"
         />
       </form>
-      <Partial name="cart">
-        <CartSummary count={cartCount} />
-      </Partial>
+      <CartSummary count={cartCount} />
     </nav>
   );
 }
