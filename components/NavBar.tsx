@@ -8,6 +8,16 @@ export default function NavBar({ cartCount }: { cartCount: number }) {
         <div class="flex items-center gap-4">
           <button
             type="button"
+            aria-label="Menu"
+            class="text-xl"
+            hx-get="/partials/menu"
+            hx-target="#menu-root"
+            hx-swap="innerHTML"
+          >
+            ☰
+          </button>
+          <button
+            type="button"
             aria-label="Search"
             class="text-xl"
             hx-get="/search"

@@ -12,6 +12,9 @@ export default function App({ Component }: AppProps) {
         <script src="https://unpkg.com/htmx.org@1.9.10" defer></script>
       </head>
       <body f-client-nav>
+        <div id="menu-root">
+          <Partial name="menu" />
+        </div>
         <Partial name="body">
           <Component />
         </Partial>
