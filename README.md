@@ -13,4 +13,6 @@ Then start the project:
 deno task start
 ```
 
+Then open http://localhost:8000/product to see the sample product page with cart updates. The UI uses Bootstrap 5 for styling and HTMX to swap HTML snippets without leaving the page. Product information, images and specs are loaded from `data/product.json`, and items added to the cart are persisted in `data/cart.json`.
+
 This will watch the project directory and restart as necessary.
