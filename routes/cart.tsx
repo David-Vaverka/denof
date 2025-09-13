@@ -37,7 +37,7 @@ export const handler: Handlers = {
         <button
           id="add-button"
           hx-swap-oob="outerHTML"
-          class="px-4 py-2 bg-green-600 text-white rounded"
+          class="btn btn-success"
         >
           Added
         </button>

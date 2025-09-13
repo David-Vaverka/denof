@@ -48,12 +48,16 @@ export default function ProductPage({ data }: PageProps<Data>) {
   return (
     <div>
       <NavBar cartCount={data.cartCount} />
-      <div class="max-w-4xl mx-auto p-4 space-y-4">
+      <div class="container my-4">
         <Breadcrumbs items={data.product.breadcrumbs} />
         <ProductMenu items={data.product.menu} />
-        <div class="grid md:grid-cols-2 gap-4">
-          <ProductGallery images={data.product.images} />
-          <ProductDetails product={data.product} />
+        <div class="row g-4">
+          <div class="col-md-6">
+            <ProductGallery images={data.product.images} />
+          </div>
+          <div class="col-md-6">
+            <ProductDetails product={data.product} />
+          </div>
         </div>
       </div>
     </div>

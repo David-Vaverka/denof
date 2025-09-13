@@ -27,15 +27,13 @@ export default function SearchPage({ data }: PageProps<Data>) {
   return (
     <div>
       <NavBar cartCount={data.cartCount} />
-      <div class="p-4 space-y-4">
-        <h1 class="text-xl font-bold">Results for "{data.query}"</h1>
+      <div class="container py-4">
+        <h1 class="h5">Results for "{data.query}"</h1>
         {data.results.length > 0 ? (
-          <ul class="list-disc pl-5">
+          <ul class="list-group">
             {data.results.map((p) => (
-              <li key={p.id}>
-                <a href="/product" class="text-blue-600 hover:underline">
-                  {p.title}
-                </a>
+              <li key={p.id} class="list-group-item">
+                <a href="/product">{p.title}</a>
               </li>
             ))}
           </ul>

@@ -1,10 +1,10 @@
 export default function ProductMenu({ items }: { items: string[] }) {
   return (
-    <nav class="mb-4">
-      <ul class="flex flex-wrap gap-2 text-sm text-gray-600">
+    <nav class="mb-3">
+      <ul class="nav nav-pills flex-wrap">
         {items.map((item) => (
-          <li key={item}>
-            <a href={`/${item}`} class="hover:underline">
+          <li class="nav-item" key={item}>
+            <a href={`/${item}`} class="nav-link">
               {item}
             </a>
           </li>

@@ -17,20 +17,20 @@ export const handler: Handlers<Data> = {
 export default function Home({ data }: PageProps<Data>) {
     console.log(data.amount, "data.amount")
     return (
-        <div f-client-nav class="p-6 space-y-4">
-             <a href="/" f-partial="/partials/calc">Routes</a>
+        <div f-client-nav class="p-4">
+            <a href="/" f-partial="/partials/calc" class="btn btn-link">Routes</a>
             <form
                 method="GET"
                 action={`?amount=${data.amount}`}
                 f-partial="/partials/calc"
                 onInput={(e) => (e.currentTarget as HTMLFormElement).requestSubmit()}
-                class="space-x-2"
+                class="d-flex gap-2 my-3"
             >
                 <input
                     type="number"
                     name="amount"
                     value={data.amount}
-                    class="border p-2 rounded"
+                    class="form-control"
                 />
             </form>
 
