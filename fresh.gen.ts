@@ -4,14 +4,14 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
-import * as $api_joke from "./routes/api/joke.ts";
-import * as $greet_name_ from "./routes/greet/[name].tsx";
+import * as $cart from "./routes/cart.tsx";
+import * as $category_name_ from "./routes/category/[name].tsx";
+import * as $counter from "./routes/counter.tsx";
+import * as $gallery from "./routes/gallery.tsx";
 import * as $index from "./routes/index.tsx";
-import * as $partials_calc from "./routes/partials/calc.tsx";
+import * as $product from "./routes/product.tsx";
+import * as $search from "./routes/search.tsx";
 import * as $partials_menu from "./routes/partials/menu.tsx";
-import * as $Calc from "./islands/Calc.tsx";
-import * as $Counter from "./islands/Counter.tsx";
-import * as $SearchBox from "./islands/SearchBox.tsx";
 import * as $JsCounter from "./islands/JsCounter.tsx";
 import * as $Menu from "./islands/Menu.tsx";
 import type { Manifest } from "$fresh/server.ts";
@@ -20,16 +20,16 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
-    "./routes/api/joke.ts": $api_joke,
-    "./routes/greet/[name].tsx": $greet_name_,
+    "./routes/cart.tsx": $cart,
+    "./routes/category/[name].tsx": $category_name_,
+    "./routes/counter.tsx": $counter,
+    "./routes/gallery.tsx": $gallery,
     "./routes/index.tsx": $index,
-    "./routes/partials/calc.tsx": $partials_calc,
+    "./routes/product.tsx": $product,
+    "./routes/search.tsx": $search,
     "./routes/partials/menu.tsx": $partials_menu,
   },
   islands: {
-    "./islands/Calc.tsx": $Calc,
-    "./islands/Counter.tsx": $Counter,
-    "./islands/SearchBox.tsx": $SearchBox,
     "./islands/JsCounter.tsx": $JsCounter,
     "./islands/Menu.tsx": $Menu,
   },

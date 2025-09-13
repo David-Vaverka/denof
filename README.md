@@ -18,14 +18,12 @@ Then open http://localhost:8000/product to see the sample product page with cart
 ### Features
 
 - Mobile-first navigation bar with cart count and on-demand search overlay
-- Image gallery with HTMX-powered thumbnail swapping, CDN-sized lazy images, and keyboard navigation
+- Image gallery with fixed image dimensions, lazy thumbnails, keyboard navigation, and a CSS hover zoom
 - Detailed product info including rating, coupon notice and spec list
 - Add-to-cart button updates the cart count without reloading
-- Search overlay that loads a Preact island for local filtering
-- Search overlay suggests products as you type
-- JS counter component demonstrates client-side interactivity
+- Search overlay fetched via HTMX; server-side suggestions appear as you type without leaving the page
+- JS counter loads only after clicking "Show Counter", proving no custom JS is sent initially
 - Category page (`/category/dorbeckovku`) showing sample products
-- Hamburger menu fetched on demand; its Preact island loads only after clicking and
-  renders a Tailwind-styled drawer with category icons and submenus
+- Hamburger menu fetched on demand; its island code downloads only after the menu snippet is requested
 
 This will watch the project directory and restart as necessary.

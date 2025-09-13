@@ -9,14 +9,17 @@ export default function ProductGallery({ images, index = 0 }: Props) {
   const main = cdn(images[index], 800, 600);
   return (
     <div id="gallery" class="space-y-2">
-      <img
-        id="main-image"
-        src={main}
-        alt="product"
-        class="w-full rounded"
-        loading="lazy"
-        decoding="async"
-      />
+      <div class="group overflow-hidden rounded">
+        <img
+          id="main-image"
+          src={main}
+          alt="product"
+          width="800"
+          height="600"
+          class="w-full h-auto transition-transform duration-300 group-hover:scale-150"
+          decoding="async"
+        />
+      </div>
       <div class="flex overflow-x-auto space-x-2">
         {images.map((img, i) => (
           <button
@@ -33,6 +36,8 @@ export default function ProductGallery({ images, index = 0 }: Props) {
             <img
               src={cdn(img, 100, 100)}
               alt="thumb"
+              width="100"
+              height="100"
               class="w-full h-full object-cover rounded"
               loading="lazy"
             />

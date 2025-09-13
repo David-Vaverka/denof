@@ -17,6 +17,7 @@ const items = [
 ];
 
 export default function MenuPartial() {
+  console.log("loading menu partial");
   return (
     <Partial name="menu">
       <Menu items={items} />
