@@ -25,6 +25,7 @@ Then open http://localhost:8000/product to see the sample product page with cart
 - Search overlay suggests products as you type
 - JS counter component demonstrates client-side interactivity
 - Category page (`/category/dorbeckovku`) showing sample products
-- Hamburger menu fetched on demand; its Preact island loads only after clicking
+- Hamburger menu fetched on demand; its Preact island loads only after clicking and
+  renders a Tailwind-styled drawer with category icons and submenus
 
 This will watch the project directory and restart as necessary.

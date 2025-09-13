@@ -2,9 +2,18 @@ import { Partial } from "$fresh/runtime.ts";
 import Menu from "../../islands/Menu.tsx";
 
 const items = [
-  { title: "Home", href: "/" },
-  { title: "Product", href: "/product" },
-  { title: "Cart", href: "/cart" },
+  { title: "Gospodinjski aparati", href: "#", icon: "🍳" },
+  { title: "Računalništvo, telefonija", href: "#", icon: "💻" },
+  { title: "Avdio-video in foto", href: "#", icon: "🎥" },
+  {
+    title: "Oprema doma",
+    icon: "🏠",
+    children: [
+      { title: "Vsa ponudba", href: "#" },
+      { title: "Živila", href: "#" },
+      { title: "Jedilnica", href: "#" },
+    ],
+  },
 ];
 
 export default function MenuPartial() {
