@@ -1,6 +1,7 @@
 import { Handlers } from "$fresh/server.ts";
 import CartSummary from "../components/CartSummary.tsx";
 import { renderToString } from "preact-render-to-string";
+import { h } from "preact";
 
 interface Cart {
   items: string[];
@@ -30,7 +31,18 @@ export const handler: Handlers = {
     const cart = await readCart();
     if (id) cart.items.push(id);
     await writeCart(cart);
-    const body = renderToString(<CartSummary count={cart.items.length} />);
+    const body = renderToString(
+      <>
+        <CartSummary count={cart.items.length} />
+        <button
+          id="add-button"
+          hx-swap-oob="outerHTML"
+          class="px-4 py-2 bg-green-600 text-white rounded"
+        >
+          Added
+        </button>
+      </>,
+    );
     return new Response(body, { headers: { "Content-Type": "text/html" } });
   },
 };

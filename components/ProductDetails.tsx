@@ -50,11 +50,11 @@ export default function ProductDetails({ product }: { product: Product }) {
         hx-target="#cart-count"
         hx-swap="outerHTML"
         hx-indicator="#add-indicator"
-        hx-on="htmx:afterRequest: this.querySelector('button').innerText='Added'"
         class="mt-4 flex items-center gap-2"
       >
         <input type="hidden" name="id" value={product.id} />
         <button
+          id="add-button"
           type="submit"
           class="px-4 py-2 bg-blue-600 text-white rounded"
         >
