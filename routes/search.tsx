@@ -30,26 +30,24 @@ export const handler: Handlers<Data> = {
 export default function Search({ data }: PageProps<Data>) {
   if (data.q) {
     return (
-      <ul>
+      <ul class="list-group">
         {data.products.length
           ? data.products.map((p) => (
-            <li key={p.id} class="py-1">
-              <a href={`/product?id=${p.id}`} class="block">
-                {p.title}
-              </a>
+            <li key={p.id} class="list-group-item">
+              <a href={`/product?id=${p.id}`}>{p.title}</a>
             </li>
           ))
-          : <li>No results</li>}
+          : <li class="list-group-item">No results</li>}
       </ul>
     );
   }
   return (
-    <div class="fixed inset-0 bg-white p-4">
+    <div class="position-fixed top-0 start-0 w-100 h-100 bg-white p-4">
       <input
         type="text"
         name="q"
         placeholder="Search..."
-        class="w-full p-2 border"
+        class="form-control"
         hx-get="/search"
         hx-trigger="input changed delay:500ms"
         hx-target="#search-results"

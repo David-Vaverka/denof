@@ -3,13 +3,13 @@ import CartSummary from "./CartSummary.tsx";
 export default function NavBar({ cartCount }: { cartCount: number }) {
   return (
     <>
-      <nav class="flex items-center justify-between p-4 border-b">
-        <a href="/product" class="font-bold text-lg">Narwal Store</a>
-        <div class="flex items-center gap-4">
+      <nav class="navbar bg-light px-3 mb-3">
+        <a href="/product" class="navbar-brand">Narwal Store</a>
+        <div class="d-flex align-items-center gap-3">
           <button
             type="button"
             aria-label="Menu"
-            class="text-xl"
+            class="btn btn-link fs-4 text-decoration-none"
             hx-get="/partials/menu"
             hx-target="#menu-root"
             hx-swap="outerHTML"
@@ -19,7 +19,7 @@ export default function NavBar({ cartCount }: { cartCount: number }) {
           <button
             type="button"
             aria-label="Search"
-            class="text-xl"
+            class="btn btn-link fs-4 text-decoration-none"
             hx-get="/search"
             hx-target="#search-box"
             hx-swap="innerHTML"

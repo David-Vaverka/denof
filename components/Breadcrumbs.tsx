@@ -5,12 +5,11 @@ interface Crumb {
 
 export default function Breadcrumbs({ items }: { items: Crumb[] }) {
   return (
-    <nav class="mb-3 text-sm" aria-label="breadcrumb">
-      <ol class="flex gap-2">
-        {items.map((c, i) => (
-          <li key={c.url} class="flex items-center">
+    <nav class="mb-3 small" aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0">
+        {items.map((c) => (
+          <li key={c.url} class="breadcrumb-item">
             <a href={`/${c.url}`}>{c.title}</a>
-            {i < items.length - 1 && <span class="mx-1">/</span>}
           </li>
         ))}
       </ol>

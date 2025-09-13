@@ -29,16 +29,25 @@ export default function CategoryPage({ data }: PageProps<Data>) {
   return (
     <div>
       <NavBar cartCount={data.cartCount} />
-      <h1 class="text-xl font-bold p-4">{data.title}</h1>
-      <ul class="p-4 space-y-4">
+      <h1 class="h5 fw-bold p-3">{data.title}</h1>
+      <ul class="list-unstyled p-3">
         {data.products.map((p) => (
-          <li key={p.id} class="flex gap-4">
-            <img src={p.image} alt={p.title} class="w-24 h-24 rounded object-cover" />
+          <li key={p.id} class="d-flex gap-3 mb-3">
+            <img
+              src={p.image}
+              alt={p.title}
+              class="rounded"
+              width="96"
+              height="96"
+            />
             <div>
-              <a href={p.id === "45544593" ? "/product" : "#"} class="block font-medium">
+              <a
+                href={p.id === "45544593" ? "/product" : "#"}
+                class="fw-medium d-block"
+              >
                 {p.title}
               </a>
-              <span class="text-green-600">{p.price.toFixed(2)} €</span>
+              <span class="text-success">{p.price.toFixed(2)} €</span>
             </div>
           </li>
         ))}

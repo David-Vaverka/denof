@@ -9,6 +9,7 @@ import * as $category_name_ from "./routes/category/[name].tsx";
 import * as $counter from "./routes/counter.tsx";
 import * as $gallery from "./routes/gallery.tsx";
 import * as $index from "./routes/index.tsx";
+import * as $notes from "./routes/notes.tsx";
 import * as $product from "./routes/product.tsx";
 import * as $search from "./routes/search.tsx";
 import * as $partials_menu from "./routes/partials/menu.tsx";
@@ -25,6 +26,7 @@ const manifest = {
     "./routes/counter.tsx": $counter,
     "./routes/gallery.tsx": $gallery,
     "./routes/index.tsx": $index,
+    "./routes/notes.tsx": $notes,
     "./routes/product.tsx": $product,
     "./routes/search.tsx": $search,
     "./routes/partials/menu.tsx": $partials_menu,

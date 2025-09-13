@@ -8,26 +8,26 @@ interface Props {
 export default function ProductGallery({ images, index = 0 }: Props) {
   const main = cdn(images[index], 500, 250);
   return (
-    <div id="gallery" class="space-y-2">
-      <div class="group overflow-hidden rounded">
+    <div id="gallery" class="mb-3">
+      <div class="overflow-hidden rounded mb-2">
         <img
           id="main-image"
           src={main}
           alt="product"
           width="500"
           height="250"
-          class="w-full max-h-[250px] object-contain transition-transform duration-300 group-hover:scale-150"
+          class="img-fluid"
           decoding="async"
         />
       </div>
-      <div class="flex overflow-x-auto space-x-2">
+      <div class="d-flex overflow-auto gap-2 mb-2">
         {images.map((img, i) => (
           <button
             key={img}
             type="button"
-            class={`flex-shrink-0 w-20 h-20 rounded border ${
-              i === index ? "border-blue-500 border-2" : "border-transparent"
-            }`}
+            class={`p-0 border ${
+              i === index ? "border-primary border-2" : "border-0"
+            } bg-transparent`}
             hx-get={`/gallery?index=${i}`}
             hx-target="#gallery"
             hx-swap="outerHTML"
@@ -38,15 +38,15 @@ export default function ProductGallery({ images, index = 0 }: Props) {
               alt="thumb"
               width="100"
               height="100"
-              class="w-full h-full object-cover rounded"
+              class="img-thumbnail"
               loading="lazy"
             />
           </button>
         ))}
       </div>
-      <div class="flex justify-between">
+      <div class="d-flex justify-content-between">
         <button
-          class="px-4 py-2 bg-blue-500 text-white rounded"
+          class="btn btn-primary"
           hx-post="/gallery"
           hx-vals={`{"dir":"prev","index":${index}}`}
           hx-target="#gallery"
@@ -57,7 +57,7 @@ export default function ProductGallery({ images, index = 0 }: Props) {
           ‹
         </button>
         <button
-          class="px-4 py-2 bg-blue-500 text-white rounded"
+          class="btn btn-primary"
           hx-post="/gallery"
           hx-vals={`{"dir":"next","index":${index}}`}
           hx-target="#gallery"

@@ -50,16 +50,20 @@ export default function ProductPage({ data }: PageProps<Data>) {
   return (
     <div>
       <NavBar cartCount={data.cartCount} />
-      <div class="p-4">
+      <div class="container p-3">
         <Breadcrumbs items={data.product.breadcrumbs} />
         <ProductMenu items={data.product.menu} />
-        <div class="grid gap-4">
-          <ProductGallery images={data.product.images} />
-          <ProductDetails product={data.product} />
+        <div class="row g-4">
+          <div class="col-12">
+            <ProductGallery images={data.product.images} />
+          </div>
+          <div class="col-12">
+            <ProductDetails product={data.product} />
+          </div>
         </div>
         <div class="mt-4">
           <button
-            class="px-4 py-2 bg-gray-200 rounded"
+            class="btn btn-secondary"
             hx-get="/counter"
             hx-target="#counter-root"
             hx-swap="innerHTML"

@@ -13,7 +13,7 @@ Then start the project:
 deno task start
 ```
 
-Then open http://localhost:8000/product to see the sample product page with cart updates. The UI is styled with Tailwind CSS and uses HTMX to swap HTML snippets without leaving the page. Product information, images and specs are loaded from `data/product.json`, and items added to the cart are persisted in `data/cart.json`.
+Then open http://localhost:8000/product to see the sample product page with cart updates. The UI uses Bootstrap 5 and HTMX to swap HTML snippets without leaving the page. Product information, images and specs are loaded from `data/product.json`, and items added to the cart are persisted in `data/cart.json`.
 
 ### Features
 
@@ -25,5 +25,6 @@ Then open http://localhost:8000/product to see the sample product page with cart
 - JS counter loads only after clicking "Show Counter", proving no custom JS is sent initially
 - Category page (`/category/dorbeckovku`) showing sample products
 - Hamburger menu fetched on demand; its island code downloads only after the menu snippet is requested
+- Notes demo at `/notes` uses HTMX to append entries that are stored in `data/notes.json`
 
 This will watch the project directory and restart as necessary.
