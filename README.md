@@ -18,7 +18,7 @@ Then open http://localhost:8000/product to see the sample product page with cart
 ### Features
 
 - Responsive navigation bar with search field and cart badge
-- Image gallery with HTMX-powered thumbnail swapping
+- Image gallery with HTMX-powered thumbnail and arrow navigation
 - Detailed product info including rating, coupon notice and spec list
 - Add-to-cart button updates the cart badge without reloading
 
