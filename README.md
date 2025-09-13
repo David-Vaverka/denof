@@ -18,7 +18,7 @@ Then open http://localhost:8000/product to see the sample product page with cart
 ### Features
 
 - Mobile-first navigation bar with cart count and on-demand search overlay
-- Image gallery with HTMX-powered thumbnail swapping
+- Image gallery with HTMX-powered thumbnail swapping, CDN-sized lazy images, and keyboard navigation
 - Detailed product info including rating, coupon notice and spec list
 - Add-to-cart button updates the cart count without reloading
 - Search overlay that loads a Preact island for local filtering
