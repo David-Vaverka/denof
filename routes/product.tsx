@@ -4,6 +4,7 @@ import ProductGallery from "../components/ProductGallery.tsx";
 import ProductDetails from "../components/ProductDetails.tsx";
 import ProductMenu from "../components/ProductMenu.tsx";
 import Breadcrumbs from "../components/Breadcrumbs.tsx";
+import JsCounter from "../islands/JsCounter.tsx";
 
 interface Parameter {
   title: string;
@@ -57,6 +58,7 @@ export default function ProductPage({ data }: PageProps<Data>) {
           <ProductGallery images={data.product.images} />
           <ProductDetails product={data.product} />
         </div>
+        <JsCounter />
       </div>
     </div>
   );

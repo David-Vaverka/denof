@@ -22,6 +22,8 @@ Then open http://localhost:8000/product to see the sample product page with cart
 - Detailed product info including rating, coupon notice and spec list
 - Add-to-cart button updates the cart count without reloading
 - Search overlay that loads a Preact island for local filtering
+- Search overlay suggests products as you type
+- JS counter component demonstrates client-side interactivity
 - Category page (`/category/dorbeckovku`) showing sample products
 
 This will watch the project directory and restart as necessary.
