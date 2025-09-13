@@ -1,0 +1,54 @@
+{
+  "id": "45544593",
+  "title": "Narwal Freo X Ultra robotski sesalnik",
+  "price": 493.9,
+  "priceRrp": 822.9,
+  "descriptionHtml": "<p>Narwal robotski sesalnik povzdiguje uporabni\u0161ko izku\u0161njo \u010di\u0161\u010denja doma in ponuja najnovej\u0161e tehnolo\u0161ke napredke na podro\u010dju robotskega \u010di\u0161\u010denja tal. S sesalno mo\u010djo <strong>8200 Pa</strong> in krta\u010do proti zapletanju boste izkusili vrhunske sposobnosti \u010di\u0161\u010denja.</p>\n<p>Poleg sesanja poskrbi naprava tudi za <strong>pomivanje tal</strong>, pri \u010dimer s te\u017eo pritiska 12 N odstrani tudi bolj trdovratne made\u017ee. Z 280 ml velikim rezervoarjem za vodo lahko naenkrat obri\u0161e do 450 m\u00b2 povr\u0161in.</p>",
+  "images": [
+    "https://i.cdn.nrholding.net/121578390/",
+    "https://i.cdn.nrholding.net/121578396/",
+    "https://i.cdn.nrholding.net/121578397/",
+    "https://i.cdn.nrholding.net/121578401/",
+    "https://i.cdn.nrholding.net/121579264/",
+    "https://i.cdn.nrholding.net/121578400/",
+    "https://i.cdn.nrholding.net/121578391/",
+    "https://i.cdn.nrholding.net/121578399/",
+    "https://i.cdn.nrholding.net/121578402/",
+    "https://i.cdn.nrholding.net/121578398/",
+    "https://i.cdn.nrholding.net/121578392/",
+    "https://i.cdn.nrholding.net/121578393/",
+    "https://i.cdn.nrholding.net/121578394/",
+    "https://i.cdn.nrholding.net/121578395/"
+  ],
+  "menu": [
+    "sesalniki",
+    "robotski-sesalniki",
+    "odrezane-cene-262",
+    "robotski-sesalniki-za-preproge",
+    "robotski-sesalniki-z-lasersko-navigacijo"
+  ],
+  "breadcrumbs": [
+    { "title": "Mali gospodinjski aparati", "url": "mali-gospodinjski-aparati" },
+    { "title": "Sesalniki, parni \u010distilniki", "url": "sesalniki" },
+    { "title": "Robotski", "url": "robotski-sesalniki" },
+    { "title": "Za preproge", "url": "robotski-sesalniki-za-preproge" }
+  ],
+  "rank": { "rating": 4.8, "count": 4 },
+  "coupon": {
+    "code": "25MDW9SI17",
+    "description": "15% popusta na znamko Narwal",
+    "expirationDate": "2025-09-28T23:59:59.000Z",
+    "percentualValue": 15
+  },
+  "parameters": [
+    { "title": "Sesalna mo\u010d", "value": "8200 Pa" },
+    { "title": "Baterija", "value": "5000 mAh" },
+    { "title": "\u010cas delovanja", "value": "do 210 min" },
+    { "title": "Kapaciteta rezervoarja za vodo", "value": "280 ml" },
+    { "title": "Kapaciteta posode za prah", "value": "1000 ml" },
+    { "title": "Brez\u017ei\u010dna povezava", "value": "Wifi IEEE 802.11bgn, 2412\u20132472MHz, Bluetooth BLE 4.2" },
+    { "title": "Senzorji", "value": "trije laserji s strukturirano + infrarde\u010do + ultrazvo\u010dno svetlobo" },
+    { "title": "Dimenzije (robot)", "value": "275 \u00d7 118 \u00d7 137 mm" },
+    { "title": "Barva", "value": "bela" }
+  ]
+}
