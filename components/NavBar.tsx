@@ -2,19 +2,12 @@ import CartSummary from "./CartSummary.tsx";
 
 export default function NavBar({ cartCount }: { cartCount: number }) {
   return (
-    <nav class="navbar navbar-expand-lg bg-light border-bottom">
-      <div class="container">
-        <a href="/product" class="navbar-brand fw-bold">
-          Narwal Store
+    <nav class="flex items-center justify-between p-4 border-b">
+      <a href="/product" class="font-bold text-lg">Narwal Store</a>
+      <div class="flex items-center gap-4">
+        <a href="/search" aria-label="Search" class="text-xl">
+          🔍
         </a>
-        <form action="/search" method="GET" class="d-flex flex-grow-1 mx-3">
-          <input
-            type="text"
-            name="q"
-            placeholder="Search..."
-            class="form-control me-2"
-          />
-        </form>
         <CartSummary count={cartCount} />
       </div>
     </nav>

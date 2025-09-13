@@ -18,19 +18,19 @@ export default function Home({ data }: PageProps<Data>) {
     console.log(data.amount, "data.amount")
     return (
         <div f-client-nav class="p-4">
-            <a href="/" f-partial="/partials/calc" class="btn btn-link">Routes</a>
+            <a href="/" f-partial="/partials/calc" class="text-blue-600">Routes</a>
             <form
                 method="GET"
                 action={`?amount=${data.amount}`}
                 f-partial="/partials/calc"
                 onInput={(e) => (e.currentTarget as HTMLFormElement).requestSubmit()}
-                class="d-flex gap-2 my-3"
+                class="flex gap-2 my-3"
             >
                 <input
                     type="number"
                     name="amount"
                     value={data.amount}
-                    class="form-control"
+                    class="border p-2"
                 />
             </form>
 

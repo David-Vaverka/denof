@@ -11,6 +11,7 @@ export const handler: Handlers = {
   GET(req) {
     const url = new URL(req.url);
     const index = Number(url.searchParams.get("index") ?? "0");
+    console.log("gallery GET", index);
     const body = renderToString(
       <ProductGallery images={images} index={index} />,
     );
@@ -23,6 +24,7 @@ export const handler: Handlers = {
     let nextIndex = index;
     if (dir === "next") nextIndex = (index + 1) % images.length;
     else nextIndex = (index - 1 + images.length) % images.length;
+    console.log("gallery POST", dir, nextIndex);
     const body = renderToString(
       <ProductGallery images={images} index={nextIndex} />,
     );

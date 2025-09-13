@@ -10,14 +10,14 @@ export default function ProductGallery({ images, index = 0 }: Props) {
         id="main-image"
         src={images[index]}
         alt="main"
-        class="img-fluid rounded mb-2"
+        class="w-full rounded mb-2"
       />
-      <div class="row row-cols-5 g-2">
+      <div class="grid grid-cols-5 gap-2">
         {images.map((img, i) => (
-          <div class="col" key={img}>
+          <div key={img}>
             <button
               type="button"
-              class="btn p-0 border-0"
+              class="p-0 border-0"
               hx-get={`/gallery?index=${i}`}
               hx-target="#gallery"
               hx-swap="outerHTML"
@@ -25,8 +25,8 @@ export default function ProductGallery({ images, index = 0 }: Props) {
               <img
                 src={img}
                 alt="thumb"
-                class={`img-fluid rounded border ${
-                  i === index ? "border-2 border-warning" : ""
+                class={`w-full rounded border ${
+                  i === index ? "border-blue-500 border-2" : ""
                 }`}
               />
             </button>
@@ -37,24 +37,24 @@ export default function ProductGallery({ images, index = 0 }: Props) {
         hx-post="/gallery"
         hx-target="#gallery"
         hx-swap="outerHTML"
-        class="d-flex justify-content-between mt-2"
+        class="flex justify-between mt-2"
       >
         <input type="hidden" name="index" value={index} />
         <button
-          class="btn btn-warning"
+          class="px-4 py-2 bg-blue-500 text-white rounded"
           name="dir"
           value="prev"
           aria-label="Previous"
         >
-          <i class="bi bi-chevron-left text-white"></i>
+          ‹
         </button>
         <button
-          class="btn btn-warning"
+          class="px-4 py-2 bg-blue-500 text-white rounded"
           name="dir"
           value="next"
           aria-label="Next"
         >
-          <i class="bi bi-chevron-right text-white"></i>
+          ›
         </button>
       </form>
     </div>

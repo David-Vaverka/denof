@@ -16,45 +16,51 @@ interface Product {
 
 export default function ProductDetails({ product }: { product: Product }) {
   return (
-    <div class="card p-4">
-      <h2 class="h3 mb-3">{product.title}</h2>
+    <div class="p-4 bg-white rounded shadow">
+      <h2 class="text-xl mb-3 font-semibold">{product.title}</h2>
       <div class="mb-3">
         {product.priceRrp && (
-          <span class="text-muted text-decoration-line-through me-2">
+          <span class="text-gray-500 line-through mr-2">
             {product.priceRrp.toFixed(2)} €
           </span>
         )}
-        <span class="text-success fw-bold fs-4">
+        <span class="text-green-600 font-bold text-2xl">
           {product.price.toFixed(2)} €
         </span>
+        {product.priceRrp && (
+          <span class="text-red-500 ml-2">
+            -
+            {Math.round(100 - (product.price / product.priceRrp) * 100)}%
+          </span>
+        )}
       </div>
       {product.rank && (
-        <div class="mb-3">
+        <div class="mb-3 text-yellow-500">
           {[...Array(Math.round(product.rank.rating))].map((_, i) => (
-            <i key={i} class="bi-star-fill text-warning"></i>
+            <span key={i}>★</span>
           ))}
-          <span class="ms-1 text-muted">
+          <span class="ml-1 text-gray-600">
             {product.rank.rating} ({product.rank.count})
           </span>
         </div>
       )}
       {product.coupon && (
-        <div class="alert alert-warning py-2">
+        <div class="bg-yellow-100 p-2 rounded mb-3 text-sm">
           Use code <strong>{product.coupon.code}</strong> – {product.coupon.description}
         </div>
       )}
       <div
-        class="mb-3"
+        class="mb-3 text-sm"
         dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
       />
       {product.parameters && (
-        <ul class="list-group list-group-flush mb-4">
+        <ul class="mb-4 text-sm">
           {product.parameters.map((p) => (
             <li
               key={p.title}
-              class="list-group-item d-flex justify-content-between"
+              class="flex justify-between py-1 border-b last:border-b-0"
             >
-              <span class="fw-medium">{p.title}</span>
+              <span class="font-medium">{p.title}</span>
               <span>{p.value}</span>
             </li>
           ))}
@@ -65,13 +71,17 @@ export default function ProductDetails({ product }: { product: Product }) {
         hx-target="#cart-count"
         hx-swap="outerHTML"
         hx-indicator="#add-indicator"
-        class="d-flex align-items-center gap-2"
+        class="flex items-center gap-2"
       >
         <input type="hidden" name="id" value={product.id} />
-        <button id="add-button" type="submit" class="btn btn-primary">
-          <i class="bi-bag-plus me-1"></i> Add to Cart
+        <button
+          id="add-button"
+          type="submit"
+          class="px-4 py-2 bg-blue-600 text-white rounded"
+        >
+          Add to Cart
         </button>
-        <span id="add-indicator" class="htmx-indicator small text-muted">
+        <span id="add-indicator" class="htmx-indicator text-sm text-gray-500">
           Adding...
         </span>
       </form>

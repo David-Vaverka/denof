@@ -21,6 +21,7 @@ async function writeCart(cart: Cart) {
 
 export const handler: Handlers = {
   async GET() {
+    console.log("cart GET");
     const cart = await readCart();
     const body = renderToString(<CartSummary count={cart.items.length} />);
     return new Response(body, { headers: { "Content-Type": "text/html" } });
@@ -28,6 +29,7 @@ export const handler: Handlers = {
   async POST(req) {
     const form = await req.formData();
     const id = form.get("id")?.toString();
+    console.log("cart POST add", id);
     const cart = await readCart();
     if (id) cart.items.push(id);
     await writeCart(cart);
@@ -37,9 +39,9 @@ export const handler: Handlers = {
         <button
           id="add-button"
           hx-swap-oob="outerHTML"
-          class="btn btn-success"
+          class="px-4 py-2 bg-green-600 text-white rounded"
         >
-          <i class="bi-check2 me-1"></i> Added
+          Added
         </button>
       </>,
     );

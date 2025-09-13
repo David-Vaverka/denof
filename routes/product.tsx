@@ -36,9 +36,11 @@ interface Data {
 
 export const handler: Handlers<Data> = {
   async GET(_req, ctx) {
+    console.log("loading product data");
     const product: Product = JSON.parse(
       await Deno.readTextFile("./data/product.json"),
     );
+    console.log("loading cart data");
     const cart = JSON.parse(await Deno.readTextFile("./data/cart.json"));
     return ctx.render({ product, cartCount: cart.items.length });
   },
@@ -48,16 +50,12 @@ export default function ProductPage({ data }: PageProps<Data>) {
   return (
     <div>
       <NavBar cartCount={data.cartCount} />
-      <div class="container my-4">
+      <div class="p-4">
         <Breadcrumbs items={data.product.breadcrumbs} />
         <ProductMenu items={data.product.menu} />
-        <div class="row g-4">
-          <div class="col-md-6">
-            <ProductGallery images={data.product.images} />
-          </div>
-          <div class="col-md-6">
-            <ProductDetails product={data.product} />
-          </div>
+        <div class="grid gap-4">
+          <ProductGallery images={data.product.images} />
+          <ProductDetails product={data.product} />
         </div>
       </div>
     </div>
