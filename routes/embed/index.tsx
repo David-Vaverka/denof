@@ -1,12 +1,23 @@
 const embedUrl = "/embed/product";
+const lazySrc = "/embed/lazy-app";
+const downloadUrl = "/embed/download";
 const defaultPayload = {
   label: "Klikni na mě",
   start: 0,
+};
+const lazyDefaults = {
+  buttonLabel: "Načíst mini appku",
+  loadedLabel: "Aplikace načtena",
+  loadSrc: lazySrc,
 };
 
 const codeSample = `<div data-denof-embed="counter"
   data-label="${defaultPayload.label}"
   data-start="${defaultPayload.start}"></div>
+<div data-denof-embed="loader"
+  data-button-label="${lazyDefaults.buttonLabel}"
+  data-loaded-label="${lazyDefaults.loadedLabel}"
+  data-load-src="${lazyDefaults.loadSrc}"></div>
 <script type="module" src="${embedUrl}"></script>`;
 
 const fullPageSample = `<!doctype html>
@@ -17,11 +28,15 @@ const fullPageSample = `<!doctype html>
     <title>Embed counter</title>
   </head>
   <body>
-    <main style="padding: 24px; background: #f8fafc; min-height: 100vh;">
-      <h1>Ukázková stránka s Preact counterem</h1>
+    <main style="padding: 24px; background: #f8fafc; min-height: 100vh; display: grid; gap: 18px;">
+      <h1>Ukázková stránka s Preact komponentami</h1>
       <div data-denof-embed="counter"
         data-label="${defaultPayload.label}"
         data-start="${defaultPayload.start}"></div>
+      <div data-denof-embed="loader"
+        data-button-label="${lazyDefaults.buttonLabel}"
+        data-loaded-label="${lazyDefaults.loadedLabel}"
+        data-load-src="${lazyDefaults.loadSrc}"></div>
       <script type="module" src="${embedUrl}"></script>
     </main>
   </body>
@@ -32,17 +47,22 @@ export default function EmbedPage() {
     <div class="container py-5">
       <div class="row g-4">
         <div class="col-12 col-lg-6">
-          <h1 class="fw-bold">Vdelaná Preact counter komponenta</h1>
+          <h1 class="fw-bold">Vdelaná knihovna Preact komponent</h1>
           <p class="text-secondary">
             Na této adrese najdeš generovaný modul, který sám inicializuje Preact a
-            vykreslí jednoduchý click-counter. Stačí přidat <code>div</code> s atributem
-            <code>data-denof-embed="counter"</code>, případně poslat počáteční hodnotu a
-            popisek přes data atributy nebo JSON payload. Skript Preact načte a zbytek
+            vykreslí embeddované komponenty (click counter a lazy loader). Stačí
+            přidat <code>div</code> s atributem <code>data-denof-embed</code>, případně
+            poslat data přes atributy nebo JSON payload. Skript Preact načte a zbytek
             zařídí za tebe.
+          </p>
+          <p class="text-secondary">
+            Lazy loader komponenta po kliknutí dotáhne zadaný modul a zobrazí jeho
+            obsah. Můžeš ho využít pro postupné načítání těžších částí aplikace nebo
+            dalších UI prvků až ve chvíli, kdy o ně uživatel projeví zájem.
           </p>
 
           <div class="bg-light border rounded-4 p-3">
-            <p class="mb-2 fw-semibold">Rychlé vložení</p>
+            <p class="mb-2 fw-semibold">Rychlé vložení obou komponent</p>
             <pre class="bg-dark text-white rounded-3 p-3 small overflow-auto" style="max-height: 320px;">
               <code>{codeSample}</code>
             </pre>
@@ -52,6 +72,9 @@ export default function EmbedPage() {
           <ul class="list-group list-group-flush">
             <li class="list-group-item">data-label – text nad počítadlem</li>
             <li class="list-group-item">data-start – počáteční hodnota kliků</li>
+            <li class="list-group-item">data-button-label – text na lazy tlačítku</li>
+            <li class="list-group-item">data-loaded-label – text po úspěšném načtení</li>
+            <li class="list-group-item">data-load-src – URL modulu, který se má dotáhnout</li>
             <li class="list-group-item">data-payload – JSON string se stejnými klíči</li>
           </ul>
 
@@ -65,6 +88,9 @@ export default function EmbedPage() {
             <pre class="bg-dark text-white rounded-3 p-3 small overflow-auto" style="max-height: 340px;">
               <code>{fullPageSample}</code>
             </pre>
+            <a class="btn btn-dark mt-3" href={downloadUrl} download>
+              Stáhnout hotovou HTML stránku
+            </a>
           </div>
         </div>
 
@@ -81,6 +107,13 @@ export default function EmbedPage() {
                 data-denof-embed="counter"
                 data-label={defaultPayload.label}
                 data-start={defaultPayload.start}
+              ></div>
+              <div
+                class="mt-3"
+                data-denof-embed="loader"
+                data-button-label={lazyDefaults.buttonLabel}
+                data-loaded-label={lazyDefaults.loadedLabel}
+                data-load-src={lazyDefaults.loadSrc}
               ></div>
               <script type="module" src={embedUrl}></script>
             </div>
