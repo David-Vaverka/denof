@@ -9,18 +9,20 @@ type Block = {
   props?: Record<string, any>
 }
 
-const props = withDefaults(defineProps<{
-  blocks?: Block[]
-}>(), {
-  blocks: () => []
-})
+const props = defineProps<{
+  blocks?: unknown
+}>()
 
-const safeBlocks = computed(() =>
-  (props.blocks || []).filter(
+const safeBlocks = computed(() => {
+  if (!Array.isArray(props.blocks)) {
+    return [] as Block[]
+  }
+
+  return props.blocks.filter(
     (block): block is Block =>
       Boolean(block) && typeof (block as Block).type === 'string'
   )
-)
+})
 
 function resolveBlock(type: string) {
   switch (type) {
