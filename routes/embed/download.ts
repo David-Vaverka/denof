@@ -1,4 +1,3 @@
-
 import { Handlers } from "$fresh/server.ts";
 
 const embedUrl = "http://localhost:8000/embed/product";
@@ -23,18 +22,23 @@ const fullPageHtml = `<!doctype html>
       <h1>Embedované komponenty z Denof UI</h1>
       <p>Vše běží na <strong>http://localhost:8000/embed</strong>. Stačí vložit divy s <code>data-denof-embed</code> a skript.</p>
       <div class="section">
+        <h2>Hlavní shell s Preactem</h2>
+        <p>Jedna embedovaná komponenta, která sdílí stav mezi counterem, stavovou kartou a lazy loaderem.</p>
+        <div data-denof-embed="shell" data-heading="Denof UI embed shell" data-description="Sdílený stav a SSR-ready skelet"></div>
+      </div>
+      <div class="section">
         <h2>Click counter</h2>
-        <p>Používá hook useState a ukazuje základní integraci.</p>
+        <p>Používá hook useState a ukazuje základní integraci. Odesílá události, které poslouchá stavová karta.</p>
         <div data-denof-embed="counter" data-label="Klikni na mě" data-start="2"></div>
       </div>
       <div class="section">
         <h2>Stavová karta</h2>
-        <p>SSR-friendly výstup s hooky, který ukazuje stav služby a aktualizuje čas razítka.</p>
+        <p>SSR-friendly výstup s hooky, který ukazuje stav služby a reaguje na události counteru i lazy loaderu.</p>
         <div data-denof-embed="status" data-label="Stav služby" data-status="Online" data-detail="Vše běží hladce"></div>
       </div>
       <div class="section">
         <h2>Lazy loader</h2>
-        <p>Na kliknutí stáhne zbytek aplikace z ${lazySrc} a vykreslí ji.</p>
+        <p>Na kliknutí stáhne zbytek aplikace z ${lazySrc} a vykreslí ji. Po načtení vyšle událost, kterou může zachytit stavová karta.</p>
         <div data-denof-embed="loader" data-button-label="Načíst appku" data-loaded-label="Hotovo" data-load-src="${lazySrc}"></div>
       </div>
       <script type="module" src="${embedUrl}"></script>
