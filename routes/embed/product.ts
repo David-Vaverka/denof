@@ -14,13 +14,13 @@ const defaultConfig = ${JSON.stringify(defaultConfig)};
 
 const style = document.createElement("style");
 style.dataset.denof = "counter-embed";
-style.textContent = `
+style.textContent = \`
   .denof-counter { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; border: 1px solid #e5e7eb; border-radius: 12px; padding: 14px 16px; max-width: 280px; background: white; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07); }
   .denof-counter__label { margin: 0 0 10px; color: #0f172a; font-weight: 700; font-size: 16px; }
   .denof-counter__value { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 12px; color: #111827; font-weight: 700; font-size: 18px; }
   .denof-counter__button { background: linear-gradient(90deg, #0ea5e9, #6366f1); color: white; border: none; padding: 10px 14px; border-radius: 10px; font-weight: 700; cursor: pointer; transition: transform 150ms ease, box-shadow 150ms ease; }
   .denof-counter__button:hover { transform: translateY(-1px); box-shadow: 0 14px 32px rgba(59, 130, 246, 0.35); }
-`;
+\`;
 if (!document.querySelector('style[data-denof="counter-embed"]')) {
   document.head.appendChild(style);
 }
@@ -53,7 +53,7 @@ const Counter = ({ label, start }) => {
 
   return h("div", { class: "denof-counter" }, [
     h("p", { class: "denof-counter__label" }, label),
-    h("p", { class: "denof-counter__value", role: "status", "aria-live": "polite" }, `Počítadlo: \${count}`),
+    h("p", { class: "denof-counter__value", role: "status", "aria-live": "polite" }, \`Počítadlo: \\${count}\`),
     h(
       "button",
       { class: "denof-counter__button", type: "button", onClick: () => setCount((value) => value + 1) },
