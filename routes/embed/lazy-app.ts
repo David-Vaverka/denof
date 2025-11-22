@@ -1,6 +1,13 @@
 import { Handlers } from "$fresh/server.ts";
 
-const script = `import { h, render } from "https://esm.sh/preact@10.22.0";
+const styles = String.raw`
+  .denof-lazy-app { padding: 14px 16px; border-radius: 12px; background: white; box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08); border: 1px solid #e5e7eb; }
+  .denof-lazy-app__title { margin: 0 0 8px; font-weight: 800; color: #0f172a; font-size: 18px; }
+  .denof-lazy-app__text { margin: 0 0 12px; color: #475569; }
+  .denof-lazy-app__cta { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(90deg, #22c55e, #16a34a); color: white; padding: 10px 14px; border-radius: 10px; text-decoration: none; font-weight: 700; }
+`;
+
+const script = String.raw`import { h, render } from "https://esm.sh/preact@10.22.0";
 
 const LazyApp = () => {
   return h("div", { class: "denof-lazy-app" }, [
@@ -28,12 +35,7 @@ export async function mountLazyApp(target) {
   if (!existingStyle) {
     const style = document.createElement("style");
     style.dataset.denof = "lazy-app";
-    style.textContent = `
-      .denof-lazy-app { padding: 14px 16px; border-radius: 12px; background: white; box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08); border: 1px solid #e5e7eb; }
-      .denof-lazy-app__title { margin: 0 0 8px; font-weight: 800; color: #0f172a; font-size: 18px; }
-      .denof-lazy-app__text { margin: 0 0 12px; color: #475569; }
-      .denof-lazy-app__cta { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(90deg, #22c55e, #16a34a); color: white; padding: 10px 14px; border-radius: 10px; text-decoration: none; font-weight: 700; }
-    `;
+    style.textContent = ${JSON.stringify(styles)};
     document.head.appendChild(style);
   }
 

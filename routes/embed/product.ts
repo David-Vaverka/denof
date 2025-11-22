@@ -21,16 +21,7 @@ const defaultStatusConfig = {
 
 export const handler: Handlers = {
   GET() {
-    const script = String.raw`import { h, render } from "https://esm.sh/preact@10.22.0";
-import { useEffect, useRef, useState } from "https://esm.sh/preact@10.22.0/hooks";
-
-const defaultCounterConfig = ${JSON.stringify(defaultCounterConfig)};
-const defaultLoaderConfig = ${JSON.stringify(defaultLoaderConfig)};
-const defaultStatusConfig = ${JSON.stringify(defaultStatusConfig)};
-
-const style = document.createElement("style");
-style.dataset.denof = "counter-embed";
-style.textContent = `
+    const styles = String.raw`
   .denof-counter { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; border: 1px solid #e5e7eb; border-radius: 12px; padding: 14px 16px; max-width: 280px; background: white; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07); }
   .denof-counter__label { margin: 0 0 10px; color: #0f172a; font-weight: 700; font-size: 16px; }
   .denof-counter__value { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 12px; color: #111827; font-weight: 700; font-size: 18px; }
@@ -51,6 +42,18 @@ style.textContent = `
   .denof-status__refresh:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(15, 23, 42, 0.25); }
   .denof-status__timestamp { font-size: 13px; color: #0ea5e9; margin: 0; }
 `;
+
+    const script = String.raw`import { h, render } from "https://esm.sh/preact@10.22.0";
+import { useEffect, useRef, useState } from "https://esm.sh/preact@10.22.0/hooks";
+
+const defaultCounterConfig = ${JSON.stringify(defaultCounterConfig)};
+const defaultLoaderConfig = ${JSON.stringify(defaultLoaderConfig)};
+const defaultStatusConfig = ${JSON.stringify(defaultStatusConfig)};
+const styleContent = ${JSON.stringify(styles)};
+
+const style = document.createElement("style");
+style.dataset.denof = "counter-embed";
+style.textContent = styleContent;
 if (!document.querySelector('style[data-denof="counter-embed"]')) {
   document.head.appendChild(style);
 }
@@ -122,7 +125,7 @@ const Counter = ({ label, start }) => {
     h(
       "p",
       { class: "denof-counter__value", role: "status", "aria-live": "polite" },
-      `Počítadlo: ${"${count}"}`
+      "Počítadlo: " + count
     ),
     h(
       "button",
@@ -225,10 +228,10 @@ const StatusCard = ({ label, status, detail, tone }) => {
     h("div", { class: "denof-status__meta" }, [
       h("span", {
         class: "denof-status__dot",
-        style: `background:${toneStyle.dot}; box-shadow: 0 0 0 6px ${toneStyle.shadow};`,
+        style: "background:" + toneStyle.dot + "; box-shadow: 0 0 0 6px " + toneStyle.shadow + ";",
         role: "presentation",
       }),
-      h("p", { class: "denof-status__label" }, `${label}: ${status}`),
+      h("p", { class: "denof-status__label" }, label + ": " + status),
     ]),
     h("p", { class: "denof-status__detail" }, detail),
     h(
@@ -243,7 +246,7 @@ const StatusCard = ({ label, status, detail, tone }) => {
     h(
       "p",
       { class: "denof-status__timestamp", role: "status", "aria-live": "polite" },
-      `Naposledy zkontrolováno ${"${timestamp.toLocaleTimeString(\"cs-CZ\")}"}`
+      "Naposledy zkontrolováno " + timestamp.toLocaleTimeString("cs-CZ")
     ),
   ]);
 };
