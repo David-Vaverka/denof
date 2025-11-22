@@ -53,7 +53,11 @@ const Counter = ({ label, start }) => {
 
   return h("div", { class: "denof-counter" }, [
     h("p", { class: "denof-counter__label" }, label),
-    h("p", { class: "denof-counter__value", role: "status", "aria-live": "polite" }, \`Počítadlo: \\${count}\`),
+    h(
+      "p",
+      { class: "denof-counter__value", role: "status", "aria-live": "polite" },
+      \`Počítadlo: ${"${count}"}\`
+    ),
     h(
       "button",
       { class: "denof-counter__button", type: "button", onClick: () => setCount((value) => value + 1) },
