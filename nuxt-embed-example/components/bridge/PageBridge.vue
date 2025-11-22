@@ -2,14 +2,16 @@
 import LayoutBase from '~/components/layout/LayoutBase.vue'
 import BlockRenderer from '~/components/blocks/BlockRenderer.vue'
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   menu?: Array<{ label: string; url: string }>
   user?: { name?: string | null }
-  blocks: Array<{
+  blocks?: Array<{
     type: string
     props?: Record<string, any>
   }>
-}>()
+}>(), {
+  blocks: () => []
+})
 </script>
 
 <template>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+
 import HeroBlock from '~/components/blocks/HeroBlock.vue'
 import ProductListBlock from '~/components/blocks/ProductListBlock.vue'
 
@@ -7,9 +9,18 @@ type Block = {
   props?: Record<string, any>
 }
 
-const props = defineProps<{
-  blocks: Block[]
-}>()
+const props = withDefaults(defineProps<{
+  blocks?: Block[]
+}>(), {
+  blocks: () => []
+})
+
+const safeBlocks = computed(() =>
+  (props.blocks || []).filter(
+    (block): block is Block =>
+      Boolean(block) && typeof (block as Block).type === 'string'
+  )
+)
 
 function resolveBlock(type: string) {
   switch (type) {
@@ -26,7 +37,7 @@ function resolveBlock(type: string) {
 <template>
   <div>
     <component
-      v-for="(block, index) in blocks"
+      v-for="(block, index) in safeBlocks"
       :key="index"
       :is="resolveBlock(block.type)"
       v-bind="block.props"
