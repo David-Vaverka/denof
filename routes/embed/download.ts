@@ -1,3 +1,4 @@
+
 import { Handlers } from "$fresh/server.ts";
 
 const embedUrl = "http://localhost:8000/embed/product";

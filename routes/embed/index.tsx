@@ -1,3 +1,4 @@
+
 const embedUrl = "http://localhost:8000/embed/product";
 const lazySrc = "http://localhost:8000/embed/lazy-app";
 const downloadUrl = "/embed/download";

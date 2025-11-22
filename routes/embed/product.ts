@@ -1,3 +1,4 @@
+
 import { Handlers } from "$fresh/server.ts";
 
 const defaultCounterConfig = {
@@ -20,7 +21,7 @@ const defaultStatusConfig = {
 
 export const handler: Handlers = {
   GET() {
-    const script = `import { h, render } from "https://esm.sh/preact@10.22.0";
+    const script = String.raw`import { h, render } from "https://esm.sh/preact@10.22.0";
 import { useEffect, useRef, useState } from "https://esm.sh/preact@10.22.0/hooks";
 
 const defaultCounterConfig = ${JSON.stringify(defaultCounterConfig)};
@@ -29,7 +30,7 @@ const defaultStatusConfig = ${JSON.stringify(defaultStatusConfig)};
 
 const style = document.createElement("style");
 style.dataset.denof = "counter-embed";
-style.textContent = \`
+style.textContent = `
   .denof-counter { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; border: 1px solid #e5e7eb; border-radius: 12px; padding: 14px 16px; max-width: 280px; background: white; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07); }
   .denof-counter__label { margin: 0 0 10px; color: #0f172a; font-weight: 700; font-size: 16px; }
   .denof-counter__value { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 12px; color: #111827; font-weight: 700; font-size: 18px; }
@@ -49,7 +50,7 @@ style.textContent = \`
   .denof-status__refresh { width: fit-content; background: #0f172a; color: white; border: none; padding: 8px 12px; border-radius: 10px; font-weight: 700; cursor: pointer; transition: transform 150ms ease, box-shadow 150ms ease; }
   .denof-status__refresh:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(15, 23, 42, 0.25); }
   .denof-status__timestamp { font-size: 13px; color: #0ea5e9; margin: 0; }
-\`;
+`;
 if (!document.querySelector('style[data-denof="counter-embed"]')) {
   document.head.appendChild(style);
 }
@@ -71,8 +72,7 @@ const applyCounterData = (target) => {
   }
 
   if (target.dataset.label) enriched.label = target.dataset.label;
-  if (target.dataset.start)
-    enriched.start = parseNumber(target.dataset.start, enriched.start);
+  if (target.dataset.start) enriched.start = parseNumber(target.dataset.start, enriched.start);
 
   return enriched;
 };
@@ -122,7 +122,7 @@ const Counter = ({ label, start }) => {
     h(
       "p",
       { class: "denof-counter__value", role: "status", "aria-live": "polite" },
-      \`Počítadlo: ${"${count}"}\`
+      `Počítadlo: ${"${count}"}`
     ),
     h(
       "button",
@@ -243,7 +243,7 @@ const StatusCard = ({ label, status, detail, tone }) => {
     h(
       "p",
       { class: "denof-status__timestamp", role: "status", "aria-live": "polite" },
-      `Naposledy zkontrolováno ${timestamp.toLocaleTimeString("cs-CZ")}`
+      `Naposledy zkontrolováno ${"${timestamp.toLocaleTimeString(\"cs-CZ\")}"}`
     ),
   ]);
 };
